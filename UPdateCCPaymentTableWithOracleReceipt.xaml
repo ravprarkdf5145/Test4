@@ -1,0 +1,558 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="UPdateCCPaymentTableWithOracleReceipt" this:UPdateCCPaymentTableWithOracleReceipt.TrxNumArg="TRX2019080412513937903" this:UPdateCCPaymentTableWithOracleReceipt.OracleReceiptIDArgs="907071" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="TrxNumArg" Type="InArgument(x:String)" />
+    <x:Property Name="OracleReceiptIDArgs" Type="InArgument(x:String)" />
+    <x:Property Name="LowDelayArgs" Type="InArgument(x:String)" />
+    <x:Property Name="MediumDelayArgs" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>396,3254</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>UPdateCCPaymentTableWithOracleReceipt_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Credentials.Activities</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.FTP.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Mail.Exchange.Activities</x:String>
+      <x:String>UiPath.Mail.IMAP.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.POP3.Activities</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>UiPath.PDF.Activities</x:String>
+      <x:String>UiPath.XPS.Activities</x:String>
+      <x:String>UiPath.Web</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.JSON.Activities</x:String>
+      <x:String>UiPath.REST.Activities</x:String>
+      <x:String>UiPath.SOAP.Activities</x:String>
+      <x:String>UiPath.XML.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Credentials.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.FTP.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="UpDateCCPaymentTableWithOracleRecipt" sap:VirtualizedContainerService.HintSize="376,3194" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click image 'RightNow.CX.exe dafzpro...'" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ClickImage_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+      <ui:ClickImage.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:ClickImage.CursorPosition>
+      <ui:ClickImage.Image>
+        <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHgAAAAXCAYAAADAxotdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANQSURBVGhD7ZnfS5NhFMf390T/SBddSXQj3oV0J4mQCSGRMIoUwsjdFPSDpIvCkFggWnmhkwiRRAotDUGjQAYjVrKd+r71ja+nZz+c29zG+8KH533OOc95zznfd7JhYmB82q7cexXToSQuTjy3wVQ6pkNJDNyatsOQSqUqkhx/GDwb03xqErjcBX9//4hdvnYneD6mudRd4GTyhmUyy9bTcyEWuQWou8Cjo/dteHjCBgdvWnd3fzBHTPOou8C5XN52d7O2urptfX0j/50PMfb0rb3ctH/cnft4wK++x0tfIhti1P5sJXvgTKuCOrVu9tMo6irw1sAle3PmXLTu7xest3comENBg2jU27BSRLwAIZ+KivtGD6sWUJPWhTr1Bfb9HRY/O09NAn9beWKfJ89GK69i0SJxs1evRysE7uo6H8yhlCvwxft8yea9wH7fKlQS2O8PS0MEhrjF/Nyf9beyoFAoHhA4n9+vKHA5USAsBA75QDmB0TThcJFLBwk74vkc7BHPZ/K8r492wJcPMcjtzzAn0VjNx3vk8/HsC9DO52qsvkTKkQUeep2104+2o1UFzuV+VBQYRZUqTAUL4f1eQILmsYbiMSgOlXVwkIzDvQ6Udtj4MpQ743tkLKEd6DmCumFnb1j5XOBzeI4sMMR9sPYzWlXgvb3vDf8Ec0hAh4h79XmBNLd/jhcEPsQAzUkQgx4ogN/7fOpDbt5jDc0iZGdNuGcNpWiYwDs72YoCc2ghH4CPjXhKDQTDVLsOAz6c4wobfNUKrHGKiub3Pp/6NKePI4j1fWpPxybwxsbXqr5koXg/ODaEhn0D9IUap5+DwhD0JcHqn6dDBn7QfpgqJEFOteve5wvFwu9rJYjVGWCv9fr5eBom8PLydlUCAzSIQok2yQYJh4MVw2Ec4aAABqECAex14PDpwLwgel5zAz4/JBr3eiYUSz9W2BnLePbp7YQ+rVmpSWD9mYQvVydvb0Sr/g6emVmvWuBm4gVvdShwyFcNNQm8uLhpS0tbEZnMli0sbNr8/CebnV23dPqDTU2t2eTku5YTGMPST2s70HSB8c8ECFctoRzHAYT1f97agaYLHNNexAJ3OLHAHU7ixKlei+lcEn//GRRfHXmZ/QK6tO7oIx4hWwAAAABJRU5ErkJggg==" />
+      </ui:ClickImage.Image>
+      <ui:ClickImage.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:ClickImage.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ClickImage>
+    <Delay Duration="00:00:04" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_11" />
+    <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send hotkey" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="w" KeyModifiers="Ctrl" SendWindowMessages="False" SpecialKey="False">
+      <ui:SendHotkey.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+      </ui:SendHotkey.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:SendHotkey>
+    <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send hotkey" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="w" KeyModifiers="Ctrl" SendWindowMessages="False" SpecialKey="False">
+      <ui:SendHotkey.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+      </ui:SendHotkey.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:SendHotkey>
+    <Delay Duration="00:00:04" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Double Click" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="02f7f532f95c9016fceb28b01f873029" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='NavigationPageTreeView' /&gt;&lt;ctrl automationid='navItem' name='Reports Explorer' role='outline item' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:Click.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:Click>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Find'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="e562e0578d47b044ce9c2de868de146f" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='ribbon' /&gt;&lt;ctrl automationid='explorerHomeTab' /&gt;&lt;ctrl name='Navigation' role='grouping' /&gt;&lt;ctrl idx='5' name='RightNow.Applications.Components.NavigationManagement.WinFormsRi*' role='list item' /&gt;&lt;ctrl automationid='explorerFindButton' /&gt;" WaitForReady="INTERACTIVE" />
+            </ui:Click.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:Click>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Click FInd.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'WindowsForms10.EDIT.app...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="CCPaymentRcpt">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b56f17ecf8b8b1761bbc250ab8001994" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;wnd ctrlname='ExplorerView' /&gt;&lt;wnd ctrlname='toolStripContainer1' /&gt;&lt;wnd ctrlname='_splitter' /&gt;&lt;wnd ctrlname='_foldersLayoutPanel' /&gt;&lt;wnd ctrlname='ExplorerViewSearchControl' /&gt;&lt;wnd ctrlname='_panel' /&gt;&lt;wnd ctrlname='_layoutPanel' /&gt;&lt;wnd ctrlname='stringsearch' /&gt;&lt;wnd ctrlname='_outerLayoutPanel' /&gt;&lt;wnd ctrlname='_inputTextBox' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:TypeInto>
+    <Delay Duration="00:00:04" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'WindowsForms10.BUTTON.a...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="9d94e894d456ebd66a590164b0f33ad7" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;wnd ctrlname='ExplorerView' /&gt;&lt;wnd ctrlname='toolStripContainer1' /&gt;&lt;wnd ctrlname='_splitter' /&gt;&lt;wnd ctrlname='_foldersLayoutPanel' /&gt;&lt;wnd ctrlname='ExplorerViewSearchControl' /&gt;&lt;wnd ctrlname='_panel' /&gt;&lt;wnd ctrlname='_layoutPanel' /&gt;&lt;wnd ctrlname='_searchButton' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:Click.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:Click>
+    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'WindowsForms10.BUTTON.a...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="2c2f70ab5a5fbecf618b48c4b17c9a0c" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;wnd ctrlname='ExplorerView' /&gt;&lt;wnd ctrlname='toolStripContainer1' /&gt;&lt;wnd ctrlname='_splitter' /&gt;&lt;wnd ctrlname='_foldersLayoutPanel' /&gt;&lt;wnd ctrlname='_treeHeaderPanel' /&gt;&lt;wnd ctrlname='_hideFoldersButton' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:Click.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:Click>
+    <ui:CommentOut DisplayName="Comment out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Double Click Image" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ClickImage_3" KeyModifiers="None" MouseButton="BTN_RIGHT" SendWindowMessages="False">
+            <ui:ClickImage.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:ClickImage.CursorPosition>
+            <ui:ClickImage.Image>
+              <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIAAAAAVCAYAAACOleY7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAO0SURBVGhD7ZnNShxBEMf3gfIC8xA5SchFvGUkN4nkYLx4iCCEuBCExGNIJF4S8DJ4EAPxoCs5SIgIWUU3CAoJyMISNhG30lXdPVP9sTO9ajSO84dmnOnqqq6q3/asWoNKt1oVALdcBMD8/HzhWFh4TwsqlUspAHnC+fHxaZibe62eVCqLggCYmXkOjcYWjIw8qiAomYIAmJ19A1NTr2Bi4gUMD4+rp2Fq1iOo1WpsxJCoOa08myTmz3FEUG+qyZLIzVGM2K7Sv1EQAJ1OF46P27C9fQhjY9PqaZGaUI8wGavhSQxZbsU2WJyIdVzCcoMhELnVorrIPBMBYDQ8gVhAwPO+sDxxUYUAtB4/gc/3HtD19PQMRkcn1Uy+qFGegFwhNjYAGppLLc5VKgiAsNoMpCIAfn75AN8X79NVq9cDan776TO6IgBDQw/VbJ4kwfmnWIiNLE4uAM06RPrYxMGSLCqs9J2oU0gOMjd8Fr2y+Gkk9xYn+mQz52k/6Tox1N767tP3jK3X07pGxrxdB7aO+00BwOb3uh/lVXQex9lZzwCg2z0NAwBp8xTOUIiNkE4uky6yuqvHTgPSBB3qzbWyMFmD0gKmayx/QmTDfRp56MZbTbftjT0pGxZDBBEAmq85uTdWL2Ej2CXpBmd1cvfti4vyAjD5qQ133x3SlQPQ6fy+dgBksjnrjETxlGGFpMJma53Ck30GCCnPH4lDJX82gLVimv6kdAPT4TQq/7R08xCyIfLERXkBwOa/3flDVw7AycmvawEgvziYq3k0chtcrxtCdqxQfE7K02BeONozi8MGB8DoRUAjzAb2gTCnVm4eKCsXT1zUQAAcHbXDALCT9inERsifnJYslpGYnWh67zbnfADkQXsZAAjZcQriXhkAe3s/Ar8EykI4x5KhEJt+ySlRcc3COO9oXYjEtR0YgEJoLwkA5SfdW0Fcd72QD6KLArC1dRgIAMrz6USJjWR7LbYpBoAVhu5df+QjMo9/1MAA0K3wb4AkmhXr+UAAPCD6G5itc+IKv/aXQLuuRm6euKgUAP5rIH75u/Nyj6787wArK7sDAIBSn3Jsih4Ohfk2bpNMGe9/XGc1jNTnE+T6LgYApQuuR+YjAACerzIkfzYA2s6qRRbXhMP+dbavP2suBWBj4wA2N1s0Go0WrK8fwNraPqyu7sLy8jdYWtqBxcWvAwLwn8gHRYnkghwuAgD/2YONDR03S5L88xboJujCAJRV6ZHpHIflUgVApXOrAuBWC+Av9MysSTZ9w+EAAAAASUVORK5CYII=" />
+            </ui:ClickImage.Image>
+            <ui:ClickImage.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__tst3  -  Oracle Service Cloud' /&gt;" WaitForReady="INTERACTIVE" />
+            </ui:ClickImage.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ClickImage>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <Delay Duration="00:00:04" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_10" />
+    <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Double Click Image" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ClickImage_5" KeyModifiers="None" MouseButton="BTN_RIGHT" SendWindowMessages="False">
+      <ui:ClickImage.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:ClickImage.CursorPosition>
+      <ui:ClickImage.Image>
+        <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAG8AAAAWCAYAAADO6MJpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMjSURBVGhD7ZhBaxNBFMf3A/kJ9jt4KuKl9OYWb8XgofbSg4WCWBYpaI6ixVwUegk9lAr20KZ4CGIpmAYbCbSgUAJBoiF5zns7k7yZZGfGBs0u7B+G6cybeX37fjNvtw2gUG4VlMtlcLWdnbdyeaEsieDZhPZSaQO2t1/KmUJZkRPe5uZTqNXqsLT0oACYMTnhbW29gvX1F7C6+gwWF0tytlAW5ITX7fbg6qoDp6dtWFnZkLM+akAcBhAEsoWxmOFKs1chUnPUQoj1jRmWGXsAUVWa/oGs8FoPH8HHO/eo7/cHsLy8Ji0ONWIIzcDFXKzGVjsmYAysEYdTwGdFeqwT42okAEZi9qYy/esieD8+vYNvlbvUKw2HQOA6j59Qj/AWFu5Lq03JjUo/cS67IyGZkivWWWO37yd4CG7Ye5/0ghq2wWCowev1+n7w6FZZTpvL7khANWJliU7AlMOAJ55uq9xbTW66KmN0m+U45JmRFSGxqRiljxhvEd+D82qtaBSAEfsoDiX9VZHEPBljun9dE/DWPnTg9ps29Rxet/vLH56tzLnsRgLSyyZbh0liD4eAx4kRD672UxljwLSypv9etGlJVP5te9Ra1bSEJ+C0w0IyYqQDpHya/nVNwENwr89+U8/hXV///I83jyXAXCsBJI0/JEvoCLb58JYxxcV/r2iUfJsPlz8We+pzmz7EjHb4dBuXN7zLy86c3nlMWgLQz3gd3lA81apPZEkuiY29k8vHdv9aLN7+eX5Mmy5veM3md094QvJ2aIBE8KOvTavdEjDum1pe5DiMxK3je+3J1cf4c1pZs+3x9W8vm9Mhm/50ecOr19v+8FAUBCtB5nsr1W4LOElAst4EJXbix4x2ImzJRBljMybyZd8z+oCauhZd8nc22sf+k1CTPVE0/ojij6D710Xw+J8K+KFy63mTev533v7++d/Bm4PG74o8aRK4rwje8fEFnJy0qNVqLTg6uoDDw69wcHAOe3tfYHf3DCqVz9mGR2XTuN250Azw8B/PCMW3ZU+qlN4sAfPXDPBkXyiHKuDlWAW8HKuAl2MV8HIrgD+oZdLW4QycCQAAAABJRU5ErkJggg==" />
+      </ui:ClickImage.Image>
+      <ui:ClickImage.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:ClickImage.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ClickImage>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,143" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ClickText ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click text 'list item  CCPaymentRcpt'" FormattedText="False" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ClickText_1" KeyModifiers="None" MouseButton="BTN_RIGHT" Occurrence="1" SendWindowMessages="False" Text="CCPaymentRcpt">
+            <ui:ClickText.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:ClickText.CursorPosition>
+            <ui:ClickText.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="92d14afe17c182e3d8331b8a5d4f8088" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;wnd ctrlname='ExplorerView' /&gt;&lt;wnd ctrlname='toolStripContainer1' /&gt;&lt;wnd ctrlname='_list' /&gt;&lt;ctrl name='CCPaymentRcpt' role='list item' /&gt;" WaitForReady="INTERACTIVE" />
+            </ui:ClickText.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ClickText>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <Delay Duration="00:00:04" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
+    <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send hotkey" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="down" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+      <ui:SendHotkey.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+      </ui:SendHotkey.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:SendHotkey>
+    <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send hotkey" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="SendHotkey_4" Key="down" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+      <ui:SendHotkey.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+      </ui:SendHotkey.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:SendHotkey>
+    <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send hotkey" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="SendHotkey_5" Key="enter" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+      <ui:SendHotkey.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+      </ui:SendHotkey.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:SendHotkey>
+    <Delay Duration="00:00:04" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_5" />
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'editable text'" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="False" Text="[TrxNumArg]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="4a2069aa44aaa28fdcb7e2768660ac69" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='Search' /&gt;&lt;ctrl automationid='FiltersGroupBox' /&gt;&lt;ctrl automationid='dockedFilter' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:TypeInto>
+    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Search'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="9fe00840d8e8113422a44030a547e6de" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='Search' /&gt;&lt;ctrl automationid='SearchButton' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:Click.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:Click>
+    <Delay Duration="00:00:04" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_6" />
+    <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Double Click Image" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ClickImage_4" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+      <ui:ClickImage.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:ClickImage.CursorPosition>
+      <ui:ClickImage.Image>
+        <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGMAAAATCAYAAACEGbNUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVFhH7ZTBjcIwEEUpLnXshRr2znlL4LJFQAGpgAOl0EDQW+lLX4OTWBxWYzSHJ+yxPYb/Qg7zPC9FDg6Px30pclAyElEyElEyElEyElEyErEq43j8Wk6n72Y91ra4XH6bfc7nnz9iXUzT1Kx/MpsygDBj3ec9tIKlz+12famLkmFIRAz/HRn8M1wqEvb6lAxDTy5B+uvEQ2Sd0ET8F4n4qvJXlJ/3e5jzGc+2eum810dkVwZjfqjGkiERqsd9EdY09t6O79F4S4ZLBeqsaz4aXTI8AMmg5kFADMdRUPRUD2A/wQvd2SODTz8La/ePQJcMzQniXRkKkXXG1Bh70H5nrwz1+gS6ZeiJlgzmBOZ74jzCus6D5DCO/SRDdT8jGZz1fqPTLQMIwX88TyVBib2n1IMEBQ309Tup+Tntiz18DeJ3HolVGcX/UzISUTLScF+e3t8ywAKrtJIAAAAASUVORK5CYII=" />
+      </ui:ClickImage.Image>
+      <ui:ClickImage.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:ClickImage.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ClickImage>
+    <ui:CommentOut DisplayName="Comment out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Click on Transaction Reference grid" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="94fe5a206001d79d20b03fe5d93a3a16" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;wnd ctrlname='ExplorerView' /&gt;&lt;wnd ctrlname='toolStripContainer1' /&gt;&lt;wnd ctrlname='_list' /&gt;&lt;ctrl name='CCPaymentRcpt by InvPaymentType' role='list item' /&gt;" WaitForReady="INTERACTIVE" />
+            </ui:Click.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:Click>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <Delay Duration="00:00:04" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_7" />
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'editable text  TextBox'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="True" Text="[OracleReceiptIDArgs]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="0c6c293aa6b04e09aeefd9e4b0ffa652" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='TextBox' idx='7' role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:TypeInto>
+    <Delay Duration="00:00:04" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_8" />
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'editable text  TextBox'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="True" Text="Success">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="661debf3271aeb06fba68901b4f6f314" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='TextBox' idx='6' role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:TypeInto>
+    <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_9" />
+    <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click image 'RightNow.CX.exe dafzpro...'" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ClickImage_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+      <ui:ClickImage.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:ClickImage.CursorPosition>
+      <ui:ClickImage.Image>
+        <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="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" />
+      </ui:ClickImage.Image>
+      <ui:ClickImage.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__* -  Oracle Service Cloud' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:ClickImage.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ClickImage>
+    <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+    <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send hotkey" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="w" KeyModifiers="Ctrl" SendWindowMessages="False" SpecialKey="False">
+      <ui:SendHotkey.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+      </ui:SendHotkey.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:SendHotkey>
+  </Sequence>
+</Activity>

@@ -1,0 +1,350 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="NewBankTransLog" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="TrxRefNum" Type="InArgument(x:String)" />
+    <x:Property Name="CardNum" Type="InArgument(x:String)" />
+    <x:Property Name="MerchantRefNum" Type="InArgument(x:String)" />
+    <x:Property Name="TimeDate" Type="InArgument(x:String)" />
+    <x:Property Name="BankStatus" Type="InArgument(x:String)" />
+    <x:Property Name="CardType" Type="InArgument(x:String)" />
+    <x:Property Name="BankAmtPaid" Type="InArgument(x:String)" />
+    <x:Property Name="ReceiptNo" Type="InArgument(x:String)" />
+    <x:Property Name="TrsResponseCode" Type="InArgument(x:String)" />
+    <x:Property Name="TransResponseDesc" Type="InArgument(x:String)" />
+    <x:Property Name="OrganizationName" Type="InArgument(x:String)" />
+    <x:Property Name="AuthorizedId" Type="InArgument(x:String)" />
+    <x:Property Name="lowdelayArgs" Type="InArgument(x:String)" />
+    <x:Property Name="MediumDelayArgs" Type="InArgument(x:String)" />
+    <x:Property Name="BankAccountPaid1Args" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>536,3963</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>NewBankTransLog_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="create Bank Transaction Log" sap:VirtualizedContainerService.HintSize="516,3903" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Enter Transaction Reference Num" EmptyField="True" sap:VirtualizedContainerService.HintSize="474,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="[TrxRefNum]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b2e2eecfa20d0eec26989d2752741cf8" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl idx='10' /&gt;&lt;ctrl automationid='tabItem' name='New Tab *' role='page tab' /&gt;&lt;ctrl automationid='TextBox' role='editable text' idx='1' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+    </ui:TypeInto>
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'Card Num" EmptyField="True" sap:VirtualizedContainerService.HintSize="474,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="False" Text="[CardNum]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="4fd3cd4be1aaa20bd7ef3f2fb20fe271" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab *' role='page tab' /&gt;&lt;ctrl automationid='TextBox' idx='4' role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+    </ui:TypeInto>
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into Transaction Response Code'" EmptyField="True" sap:VirtualizedContainerService.HintSize="474,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="[TrsResponseCode]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="31eabb31e3b45c9ced8c52b5d547aebf" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab *' role='page tab' /&gt;&lt;ctrl automationid='TextBox' idx='3' role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+    </ui:TypeInto>
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'editable text  TextBox'" EmptyField="True" sap:VirtualizedContainerService.HintSize="473.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="False" Text="[TransResponseDesc]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="9c9fd86404f58fea6e665ded7232f9b3" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab *' role='page tab' /&gt;&lt;ctrl automationid='TextBox' idx='2' role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+    </ui:TypeInto>
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'editable text  TextBox'" EmptyField="True" sap:VirtualizedContainerService.HintSize="473.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_5" SendWindowMessages="False" SimulateType="False" Text="[CardType]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="a9e8c6487d38031399deea7674316b62" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab *' role='page tab' /&gt;&lt;ctrl automationid='TextBox' idx='5' role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+    </ui:TypeInto>
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'editable text  TextBox'" EmptyField="True" sap:VirtualizedContainerService.HintSize="473.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_6" SendWindowMessages="False" SimulateType="False" Text="[AuthorizedId]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="98319dd009f8d6db3b2e1ced3f3fd0df" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab *' role='page tab' /&gt;&lt;ctrl automationid='TextBox' idx='6' role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+    </ui:TypeInto>
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'editable text  TextBox'" EmptyField="True" sap:VirtualizedContainerService.HintSize="473.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_7" SendWindowMessages="False" SimulateType="False" Text="[BankAmtPaid]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="326f4e609cbeb595930f12197eed824a" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab *' role='page tab' /&gt;&lt;ctrl automationid='TextBox' idx='9' role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+    </ui:TypeInto>
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'editable text  TextBox'" EmptyField="True" sap:VirtualizedContainerService.HintSize="473.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_8" SendWindowMessages="False" SimulateType="False" Text="[BankAccountPaid1Args]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="f7361f5316dfc3e67776df3e71ded9bc" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab *' role='page tab' /&gt;&lt;ctrl automationid='TextBox' idx='8' role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+    </ui:TypeInto>
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'editable text  TextBox'" EmptyField="True" sap:VirtualizedContainerService.HintSize="474,134" sap2010:WorkflowViewState.IdRef="TypeInto_9" SendWindowMessages="False" SimulateType="False" Text="[ReceiptNo]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="7dbf2cede25552460d74bb42e94030f3" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab *' role='page tab' /&gt;&lt;ctrl automationid='TextBox' idx='10' role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+    </ui:TypeInto>
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'editable text  TextBox'" EmptyField="True" sap:VirtualizedContainerService.HintSize="474,134" sap2010:WorkflowViewState.IdRef="TypeInto_10" SendWindowMessages="False" SimulateType="False" Text="[BankStatus]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="f651a4feda162660fd2f16decf5f40ce" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab *' role='page tab' /&gt;&lt;ctrl automationid='TextBox' idx='11' role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+    </ui:TypeInto>
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Select Organizarion Name.'" sap:VirtualizedContainerService.HintSize="474,1441" sap2010:WorkflowViewState.IdRef="WindowScope_2" InformativeScreenshot="bf74c7103be7bd7726a955e3976e368d" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;">
+      <ui:WindowScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="418,1295" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Recording Sequence" sap:VirtualizedContainerService.HintSize="376,251" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="ui:UiElement" Name="TextOrganization" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'Dafzprod_ Hwndwrapp'" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="bf74c7103be7bd7726a955e3976e368d" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;">
+                <ui:WindowScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:FindRelative DisplayName="Find Relative Element 'text  Organization'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="FindRelative_1" RelativeElement="[TextOrganization]">
+                        <ui:FindRelative.CursorPosition>
+                          <ui:CursorPosition OffsetX="55" OffsetY="11" Position="TopRight" />
+                        </ui:FindRelative.CursorPosition>
+                        <ui:FindRelative.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="6c980488fdca9e0fe5f6575e27438a81" Selector="&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab 1' role='page tab' /&gt;&lt;ctrl automationid='EPayments$CCBankTrxLog.Organization.Label' /&gt;&lt;ctrl name='Organization' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                        </ui:FindRelative.Target>
+                      </ui:FindRelative>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:WindowScope.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:WindowScope>
+              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Element="[TextOrganization]" WaitForReady="INTERACTIVE" />
+                </ui:Click.Target>
+              </ui:Click>
+            </Sequence>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="376,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,246" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send hotkey 'grouping  EPayments$CCB...'" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="down" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+                    <ui:SendHotkey.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="5f9658c02fb74d25eff8b204de0daaea" Selector="&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab 1' role='page tab' /&gt;&lt;ctrl automationid='EPayments$CCBankTrxLog.Organization' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:SendHotkey.Target>
+                  </ui:SendHotkey>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send hotkey 'grouping  EPayments$CCB...'" EmptyField="False" sap:VirtualizedContainerService.HintSize="376,154" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="down" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="5f9658c02fb74d25eff8b204de0daaea" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab 1' role='page tab' /&gt;&lt;ctrl automationid='EPayments$CCBankTrxLog.Organization' /&gt;" WaitForReady="INTERACTIVE" />
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send hotkey 'grouping  EPayments$CCB...'" EmptyField="False" sap:VirtualizedContainerService.HintSize="376,154" sap2010:WorkflowViewState.IdRef="SendHotkey_4" Key="enter" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="5f9658c02fb74d25eff8b204de0daaea" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab 1' role='page tab' /&gt;&lt;ctrl automationid='EPayments$CCBankTrxLog.Organization' /&gt;" WaitForReady="INTERACTIVE" />
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="376,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,246" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send hotkey 'grouping  EPayments$CCB...'" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="enter" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+                    <ui:SendHotkey.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="5f9658c02fb74d25eff8b204de0daaea" Selector="&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab 1' role='page tab' /&gt;&lt;ctrl automationid='EPayments$CCBankTrxLog.Organization' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:SendHotkey.Target>
+                  </ui:SendHotkey>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <Delay Duration="[system.TimeSpan.Parse(lowdelayArgs)]" sap:VirtualizedContainerService.HintSize="376,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+            <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'WindowsForms10.EDIT.app...'" EmptyField="False" sap:VirtualizedContainerService.HintSize="376,134" sap2010:WorkflowViewState.IdRef="TypeInto_12" SendWindowMessages="False" SimulateType="False" Text="[OrganizationName]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="4716c3633ea19e6a63ba8c8243574414" Selector="&lt;wnd app='rightnow.cx.exe' cls='WindowsForms10.Window.*' title='Organization Search' /&gt;&lt;wnd ctrlname='_dockedFiltersControl' /&gt;&lt;wnd cls='WindowsForms10.Window.*' idx='3' /&gt;&lt;wnd cls='WindowsForms10.EDIT.*' /&gt;" WaitForReady="INTERACTIVE" />
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'WindowsForms10.BUTTON.a...'" sap:VirtualizedContainerService.HintSize="376,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="1a7820493f0caf7091c903442e45621b" Selector="&lt;wnd app='rightnow.cx.exe' cls='WindowsForms10.Window.*' title='Organization Search' /&gt;&lt;wnd ctrlname='_dockedFiltersControl' /&gt;&lt;wnd ctrlname='_searchButton' /&gt;" WaitForReady="INTERACTIVE" />
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </ui:WindowScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:WindowScope>
+    <Delay Duration="[system.TimeSpan.Parse(lowdelayArgs)]" sap:VirtualizedContainerService.HintSize="474,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'editable text  TextBox'" EmptyField="True" sap:VirtualizedContainerService.HintSize="474,134" sap2010:WorkflowViewState.IdRef="TypeInto_13" SendWindowMessages="False" SimulateType="False" Text="[MerchantRefNum]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="94da23ecadc8cead56827d5da74931ff" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab *' role='page tab' /&gt;&lt;ctrl automationid='TextBox' idx='7' role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+    </ui:TypeInto>
+    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into 'editable text  TextBox'" EmptyField="True" sap:VirtualizedContainerService.HintSize="474,134" sap2010:WorkflowViewState.IdRef="TypeInto_14" SendWindowMessages="False" SimulateType="True" Text="[TimeDate]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="33052c862665e1cb64571bf54bf2575b" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;&lt;ctrl automationid='contentTabSet' /&gt;&lt;ctrl automationid='editorTab' name='New CCBankTrxLog' role='page tab' /&gt;&lt;ctrl automationid='secondaryEditorTabSet' /&gt;&lt;ctrl automationid='secondaryEditorTab' /&gt;&lt;ctrl automationid='tabItem' name='New Tab 1' role='page tab' /&gt;&lt;ctrl automationid='TextBox' idx='12' role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:TypeInto.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:TypeInto>
+    <Delay Duration="[system.TimeSpan.Parse(lowdelayArgs)]" sap:VirtualizedContainerService.HintSize="474,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
+    <TryCatch DisplayName="Try catch" sap:VirtualizedContainerService.HintSize="474,51" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click image 'RightNow.CX.exe dafzpro...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ClickImage_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+          <ui:ClickImage.CursorPosition>
+            <ui:CursorPosition Position="Center">
+              <ui:CursorPosition.OffsetX>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetX>
+              <ui:CursorPosition.OffsetY>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetY>
+            </ui:CursorPosition>
+          </ui:ClickImage.CursorPosition>
+          <ui:ClickImage.Image>
+            <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="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" />
+          </ui:ClickImage.Image>
+          <ui:ClickImage.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;" WaitForReady="INTERACTIVE" />
+          </ui:ClickImage.Target>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:ClickImage>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <Delay Duration="[system.TimeSpan.Parse(lowdelayArgs)]" sap:VirtualizedContainerService.HintSize="474,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+  </Sequence>
+</Activity>

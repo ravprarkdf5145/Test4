@@ -1,0 +1,96 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ClickCCPaymentReport" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="546,665" sap2010:WorkflowViewState.IdRef="ClickCCPaymentReport_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="21">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="16">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ClickCCPaymentReport" sap:VirtualizedContainerService.HintSize="526,605" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="CCPaymentLinkExist" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="484,513" sap2010:WorkflowViewState.IdRef="DoWhile_1" Condition="[not  CCPaymentLinkExist]">
+      <Sequence sap:VirtualizedContainerService.HintSize="376,351" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Double Click Image" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ClickImage_1" KeyModifiers="None" MouseButton="BTN_RIGHT" SendWindowMessages="False">
+          <ui:ClickImage.CursorPosition>
+            <ui:CursorPosition Position="Center">
+              <ui:CursorPosition.OffsetX>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetX>
+              <ui:CursorPosition.OffsetY>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetY>
+            </ui:CursorPosition>
+          </ui:ClickImage.CursorPosition>
+          <ui:ClickImage.Image>
+            <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAG8AAAAWCAYAAADO6MJpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMjSURBVGhD7ZhBaxNBFMf3A/kJ9jt4KuKl9OYWb8XgofbSg4WCWBYpaI6ixVwUegk9lAr20KZ4CGIpmAYbCbSgUAJBoiF5zns7k7yZZGfGBs0u7B+G6cybeX37fjNvtw2gUG4VlMtlcLWdnbdyeaEsieDZhPZSaQO2t1/KmUJZkRPe5uZTqNXqsLT0oACYMTnhbW29gvX1F7C6+gwWF0tytlAW5ITX7fbg6qoDp6dtWFnZkLM+akAcBhAEsoWxmOFKs1chUnPUQoj1jRmWGXsAUVWa/oGs8FoPH8HHO/eo7/cHsLy8Ji0ONWIIzcDFXKzGVjsmYAysEYdTwGdFeqwT42okAEZi9qYy/esieD8+vYNvlbvUKw2HQOA6j59Qj/AWFu5Lq03JjUo/cS67IyGZkivWWWO37yd4CG7Ye5/0ghq2wWCowev1+n7w6FZZTpvL7khANWJliU7AlMOAJ55uq9xbTW66KmN0m+U45JmRFSGxqRiljxhvEd+D82qtaBSAEfsoDiX9VZHEPBljun9dE/DWPnTg9ps29Rxet/vLH56tzLnsRgLSyyZbh0liD4eAx4kRD672UxljwLSypv9etGlJVP5te9Ra1bSEJ+C0w0IyYqQDpHya/nVNwENwr89+U8/hXV///I83jyXAXCsBJI0/JEvoCLb58JYxxcV/r2iUfJsPlz8We+pzmz7EjHb4dBuXN7zLy86c3nlMWgLQz3gd3lA81apPZEkuiY29k8vHdv9aLN7+eX5Mmy5veM3md094QvJ2aIBE8KOvTavdEjDum1pe5DiMxK3je+3J1cf4c1pZs+3x9W8vm9Mhm/50ecOr19v+8FAUBCtB5nsr1W4LOElAst4EJXbix4x2ImzJRBljMybyZd8z+oCauhZd8nc22sf+k1CTPVE0/ojij6D710Xw+J8K+KFy63mTev533v7++d/Bm4PG74o8aRK4rwje8fEFnJy0qNVqLTg6uoDDw69wcHAOe3tfYHf3DCqVz9mGR2XTuN250Azw8B/PCMW3ZU+qlN4sAfPXDPBkXyiHKuDlWAW8HKuAl2MV8HIrgD+oZdLW4QycCQAAAABJRU5ErkJggg==" />
+          </ui:ClickImage.Image>
+          <ui:ClickImage.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" Selector="&lt;wnd app='rightnow.cx.exe' cls='HwndWrapper*' title='dafzprod__*  -  Oracle Service Cloud' /&gt;" WaitForReady="INTERACTIVE" />
+          </ui:ClickImage.Target>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:ClickImage>
+        <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+        <ui:UiElementExists DisplayName="Element Exists 'menu item  Edit'" Exists="[CCPaymentLinkExist]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+          <ui:UiElementExists.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="34b591ccdf0f5818cdc7d0fe7dabe214" Selector="&lt;wnd aaname='DropDown' app='rightnow.cx.exe' cls='WindowsForms10.Window.*' idx='1' /&gt;&lt;ctrl name='DropDown' role='popup menu' /&gt;&lt;ctrl name='Open' role='menu item' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+          </ui:UiElementExists.Target>
+        </ui:UiElementExists>
+      </Sequence>
+    </DoWhile>
+  </Sequence>
+</Activity>
